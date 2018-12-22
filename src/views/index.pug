@@ -1,0 +1,127 @@
+extends layout.pug
+
+
+
+
+
+
+
+block content
+  br
+  br
+  h1 Monkey Manager
+  form(method='POST' action='/ajoutersinge' id="menu1")
+          br
+          div.form-group
+            label(for='name') Name :
+            input#name.form-control(type='text', placeholder='Ex: Karuma' name='name')
+          br
+          div.form-group
+            label(for='age') Age:
+            input#age.form-control(type='number', name='age')
+          br
+          div.form-group
+            label(for='race') Race  :
+            input#race.form-control(type='text', placeholder='Race de votre singe' name='race')
+          br
+          div.form-group
+            label(for='sexe') Sexe :
+            Select#sexe.form-control( name='sexe')
+             option Male
+             option Femelle
+          br
+          br
+          button.btn.btn-primary(type='submit') Ajouter un singe
+
+
+  br
+  br
+  form(method='POST' action='/deletesinge' id="menu2")
+          br
+          div.form-group
+            label(for='id') ID :
+            input#id.form-control(type='text', placeholder='Entrer l\'ID du singe'  name='id')
+          br
+          br
+          button.btn.btn-primary(type='submit') Supprimer un singe
+
+
+  form(method='POST' action='/modifsinge',id="menu3")
+          br
+          br
+          div.form-group
+            label(for='ident') ID:
+            input#ident.form-control(type='number',placeholder='ID du singe a modifier', name='ident')
+          br
+          div.form-group
+            label(for='voulu') Que voulez-vous modifier ? 
+            Select#voulu.form-control( name='voulu')
+              option name
+              option race
+              option sexe
+              option enclos
+              option age
+          br
+          div.form-group
+            label(for='pasbo') remplacer par:
+            input#pasbo.form-control(type='text', name='pasbo')
+          br
+          br
+          br
+          
+
+          button.btn.btn-primary(type='submit') Modifier un singe
+
+          a(href = "/singe") Voir vos singes
+          a(href = "/enclos") Voir vos enclos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+block append
+  br
+  br
+  h1 Enclos Manager
+  form(method='POST' action='/ajouterenclos' id="menu4")
+          br
+          div.form-group
+            label(for='nom') Nom:
+            input#nom.form-control(type='text', name='nom')
+          br
+          br
+          button.btn.btn-primary(type='submit') Ajouter un enclos
+  form(method='POST' action='/deleteenclos' id="menu5")
+          br
+          div.form-group
+            label(for='id') ID :
+            input#id.form-control(type='text', placeholder='Entrer l\'ID de l\'enclos'  name='id')
+          br
+          br
+          button.btn.btn-primary(type='submit') Supprimer un enclos
+          br
+  form(method='POST' action='/modifenclos',id="menu6")
+            br
+            br
+            div.form-group
+              label(for='ident') ID:
+              input#ident.form-control(type='number',placeholder='ID de l\'enclos a modifier', name='ident')
+            br
+            div.form-group
+              label(for='pasbo') remplacer par:
+              input#pasbo.form-control(type='text', name='pasbo')
+            br
+            br
+            button.btn.btn-primary(type='submit') Modifier un enclos
+            
